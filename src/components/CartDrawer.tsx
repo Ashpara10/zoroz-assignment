@@ -76,7 +76,10 @@ const CartDrawer = () => {
               >
                 {product?.title}
               </h3>
-              <ProductRating {...product?.rating} />
+              <ProductRating
+                count={product?.reviews.length}
+                rate={product?.rating}
+              />
               <span className="flex items-center justify-start ">
                 <DollarSign className="opacity-80 size-5" /> {product?.price}
               </span>

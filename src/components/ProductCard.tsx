@@ -28,7 +28,7 @@ const ProductCard: FC<ProductCardProps> = (product) => {
           style={{
             objectFit: "contain",
           }}
-          src={product?.image}
+          src={product?.thumbnail}
           width={400}
           height={420}
           priority
@@ -43,7 +43,10 @@ const ProductCard: FC<ProductCardProps> = (product) => {
           >
             {product?.title}
           </h3>
-          <ProductRating {...product?.rating} />
+          <ProductRating
+            count={product?.reviews.length}
+            rate={product?.rating}
+          />
           <span className="flex items-center justify-start ">
             <DollarSign className="opacity-80 size-5" /> {product?.price}
           </span>

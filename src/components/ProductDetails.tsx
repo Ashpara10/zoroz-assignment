@@ -1,13 +1,13 @@
 "use client";
+import { useStore } from "@/lib/context";
 import { ProductCardProps } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import { ChevronLeft, DollarSign } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FC, useMemo } from "react";
-import ProductRating from "./ProductRating";
-import { useStore } from "@/lib/context";
 import toast from "react-hot-toast";
-import { cn } from "@/lib/utils";
+import ProductRating from "./ProductRating";
 
 type ProductDetailsProps = {
   data: ProductCardProps;
@@ -37,7 +37,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({ data }) => {
             style={{
               objectFit: "contain",
             }}
-            src={data?.image}
+            src={data?.thumbnail}
             width={400}
             height={420}
             priority
@@ -48,7 +48,7 @@ const ProductDetails: FC<ProductDetailsProps> = ({ data }) => {
           <h3 className="text-xl font-medium  line-clamp-3 leading-tight tracking-tight">
             {data?.title}
           </h3>
-          <ProductRating {...data.rating} />
+          <ProductRating count={data?.reviews.length} rate={data?.rating} />
           <div className="mt-3">
             <span className="flex items-center justify-start font-medium text-2xl mb-2 ">
               <DollarSign className="opacity-80 size-5" /> {data?.price}

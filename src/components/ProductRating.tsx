@@ -1,11 +1,13 @@
-import { ProductCardProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Dot, Star } from "lucide-react";
-import React, { FC } from "react";
+import { Star } from "lucide-react";
+import { FC } from "react";
 
-type ProductRatingProps = ProductCardProps["rating"];
+type ProductRatingProps = {
+  count?: number;
+  rate: number;
+};
 
-const ProductRating: FC<ProductRatingProps> = ({ count, rate }) => {
+const ProductRating: FC<ProductRatingProps> = ({ rate }) => {
   const rating = Math.floor(rate);
   return (
     <div className="w-full flex items-center justify-start my-3 px-1">
@@ -21,8 +23,8 @@ const ProductRating: FC<ProductRatingProps> = ({ count, rate }) => {
           />
         );
       })}
-      <Dot className="size-5 stroke-black/70 " />
-      <span className="text-sm opacity-80">{count}</span>
+      {/* <Dot className="size-5 stroke-black/70 " />
+      <span className="text-sm opacity-80">{count}</span> */}
     </div>
   );
 };
