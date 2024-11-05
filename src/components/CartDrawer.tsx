@@ -1,11 +1,11 @@
 "use client";
 import { useDrawer, useStore } from "@/lib/context";
-import Drawer from "./ui/drawer";
-import ProductRating from "./ProductRating";
-import { DollarSign } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useMemo } from "react";
+import { DollarSign } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
+import ProductRating from "./ProductRating";
+import Drawer from "./ui/drawer";
 
 const CartDrawer = () => {
   const { setStore, store } = useStore();
@@ -15,6 +15,11 @@ const CartDrawer = () => {
   const totalPrice = useMemo(() => {
     return store.reduce((acc, curr) => acc + curr.price, 0);
   }, [store]);
+
+  const handleCheckout = () => {
+    router.push(`/checkout`);
+    setOpen(false);
+  };
 
   return (
     <Drawer className="">
@@ -37,9 +42,7 @@ const CartDrawer = () => {
             Clear Cart
           </button>
           <button
-            onClick={() => {
-              router.push(`/checkout`), setOpen(false);
-            }}
+            onClick={handleCheckout}
             className={cn(
               "w-full px-4 py-2 rounded-md  justify-self-end mt-3 ",
               "bg-yellow-400/90 hover:bg-yellow-500 disabled:bg-yellow-200"

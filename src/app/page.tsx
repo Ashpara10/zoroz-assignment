@@ -1,6 +1,6 @@
 import ProductsSkeleton from "@/components/ProductListLoadingSkeleton";
 import ProductsList from "@/components/ProductsList";
-import { delay, getAllProducts } from "@/lib/actions";
+import { getAllProducts } from "@/lib/actions";
 import { Suspense } from "react";
 import toast from "react-hot-toast";
 

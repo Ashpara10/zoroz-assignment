@@ -1,7 +1,7 @@
 "use client";
 import { useDrawer } from "@/lib/context";
 import { cn } from "@/lib/utils";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 type DrawerProps = {
   children: React.ReactNode;
@@ -13,7 +13,6 @@ const Drawer: FC<DrawerProps> = ({ children, className }) => {
   const onClose = () => setOpen(false);
   return (
     <>
-      {/* Overlay */}
       {isOpen && (
         <div
           className="fixed  inset-0 bg-black bg-opacity-50 z-40"
@@ -21,7 +20,6 @@ const Drawer: FC<DrawerProps> = ({ children, className }) => {
         />
       )}
 
-      {/* Drawer */}
       <div
         className={cn(
           "fixed top-0 right-0 max-h-screen h-full max-w-md w-full bg-white z-50 transform transition-transform duration-300 ease-in-out ",
@@ -38,7 +36,6 @@ const Drawer: FC<DrawerProps> = ({ children, className }) => {
 
         {children}
       </div>
-      {/* </div> */}
     </>
   );
 };

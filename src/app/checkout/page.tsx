@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const Checkout: React.FC = () => {
   const router = useRouter();
-  const { store, setStore } = useStore();
+  const { setStore } = useStore();
   const [paymentDetails, setPaymentDetails] = useState({
     cardNumber: "",
     expiryDate: "",

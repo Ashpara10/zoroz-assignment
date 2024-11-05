@@ -10,7 +10,7 @@ type PageProps = {
 };
 
 export async function generateMetadata({ params }: PageProps) {
-  const { data, error } = await getProductById(parseInt(params!?.id!));
+  const { data } = await getProductById(parseInt(params!?.id!));
   return {
     title: `${data?.title} - Amazon`,
     description: data?.description,

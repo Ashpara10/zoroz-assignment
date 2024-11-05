@@ -1,9 +1,9 @@
 "use client";
 import { ProductCardProps } from "@/lib/types";
+import { X } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { FC, useMemo } from "react";
 import ProductCard from "./ProductCard";
-import { useRouter, useSearchParams } from "next/navigation";
-import { X } from "lucide-react";
 
 const ProductsList: FC<{ data: ProductCardProps[] }> = ({ data }) => {
   const searchParams = useSearchParams();
@@ -35,7 +35,7 @@ const ProductsList: FC<{ data: ProductCardProps[] }> = ({ data }) => {
     }
     router.push(`?${params.toString()}`);
   };
-  const onCategoryRemove = (category: string) => {
+  const onCategoryRemove = () => {
     params?.delete("category");
 
     router.push(`?${params.toString()}`);
@@ -49,7 +49,7 @@ const ProductsList: FC<{ data: ProductCardProps[] }> = ({ data }) => {
             <span
               onClick={() =>
                 isCategory === category
-                  ? onCategoryRemove(category)
+                  ? onCategoryRemove()
                   : onCategoryAdd(category)
               }
               key={category}
