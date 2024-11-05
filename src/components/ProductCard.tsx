@@ -1,10 +1,10 @@
 import { useStore } from "@/lib/context";
 import { ProductCardProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { DollarSign, Dot, IndianRupee, Star } from "lucide-react";
+import { DollarSign } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { FC, useMemo } from "react";
+import { FC, useMemo } from "react";
 import toast from "react-hot-toast";
 import ProductRating from "./ProductRating";
 
