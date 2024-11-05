@@ -21,6 +21,11 @@ const CartDrawer = () => {
     setOpen(false);
   };
 
+  const handleProductClick = (id: number) => {
+    router.push(`/product/${id}`);
+    setOpen(false);
+  };
+
   return (
     <Drawer className="">
       <div className="w-full  p-3 pt-4 border-b border-neutral-300 flex flex-col">
@@ -66,9 +71,7 @@ const CartDrawer = () => {
           >
             <div className="flex flex-col">
               <h3
-                onClick={() => {
-                  router.push(`/product/${product?.id}`), setOpen(false);
-                }}
+                onClick={() => handleProductClick(product?.id)}
                 className="tracking-tight hover:underline leading-tight font-medium text-lg"
               >
                 {product?.title}

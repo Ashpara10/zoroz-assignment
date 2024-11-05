@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 const Page: FC<PageProps> = async ({ params }) => {
-  const { data, error } = await getProductById(parseInt((await params).id!));
+  const { data, error } = await getProductById(parseInt(params.id!));
   if (error) {
     toast.error("Failed to fetch product details");
     return;
