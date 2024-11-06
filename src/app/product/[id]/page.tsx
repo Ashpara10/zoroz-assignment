@@ -3,17 +3,16 @@ import { delay, getProductById } from "@/lib/actions";
 import { Metadata } from "next";
 import toast from "react-hot-toast";
 
-type PageProps = {
+interface PageProps {
   params: {
     id: string;
   };
-};
+}
 
 export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const id = parseInt((await params).id);
-  const { data } = await getProductById(id);
+  id,
+}: PageProps["params"]): Promise<Metadata> {
+  const { data } = await getProductById(parseInt(id));
   return {
     title: `${data?.title} - Amazon`,
     description: data?.description,
@@ -23,7 +22,7 @@ export async function generateMetadata({
   };
 }
 
-const Page = async ({ id }: PageProps["params"]) => {
+export default async function Page({ id }: PageProps["params"]) {
   const { data, error } = await getProductById(parseInt(id));
   if (error) {
     toast.error("Failed to fetch product details");
@@ -31,6 +30,4 @@ const Page = async ({ id }: PageProps["params"]) => {
   }
   await delay(1000);
   return <ProductDetails data={data} />;
-};
-
-export default Page;
+}
