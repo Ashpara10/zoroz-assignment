@@ -5,9 +5,7 @@ export const delay = async (ms: number) =>
 
 export const getAllProducts = async () => {
   try {
-    const res = await fetch("https://dummyjson.com/products", {
-      cache: "no-cache",
-    });
+    const res = await fetch("https://dummyjson.com/products");
     if (!res.ok) {
       throw new Error("Failed to fetch products");
     }
@@ -24,9 +22,7 @@ export const getProductById = async (id: number) => {
     if (!id) {
       throw new Error("Id is required");
     }
-    const res = await fetch(`https://dummyjson.com/products/${id}`, {
-      cache: "no-cache",
-    });
+    const res = await fetch(`https://dummyjson.com/products/${id}`);
     if (!res.ok) {
       throw new Error("Failed to fetch products");
     }
