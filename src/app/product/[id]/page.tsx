@@ -1,7 +1,6 @@
 import ProductDetails from "@/components/ProductDetails";
 import { delay, getProductById } from "@/lib/actions";
 import { Metadata } from "next";
-import React, { FC } from "react";
 import toast from "react-hot-toast";
 
 type PageProps = {
