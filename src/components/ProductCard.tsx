@@ -22,9 +22,9 @@ const ProductCard: FC<ProductCardProps> = (product) => {
 
   return (
     <div className="flex cursor-pointer flex-col bg-white border rounded-lg overflow-hidden border-neutral-200 items-center justify-start w-full">
-      <div className="p-3 basis-1/2 ">
+      <div className="p-3 group basis-1/2 ">
         <Image
-          className=" aspect-square "
+          className="group-hover:scale-105 transition-all duration-100 aspect-square "
           style={{
             objectFit: "contain",
           }}
